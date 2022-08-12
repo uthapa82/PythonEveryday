@@ -11,7 +11,21 @@ def reversed_string(txt):
 def reversed_sol2(text):
     for i in reversed(text):
         print(i)
-        
+
+def string_formating():
+    string1 = "{} {} {}".format("Geeks", "For", "Geeks")
+    print("Print String in default order: ")
+    print(string1)
+    
+    # positional formatting 
+    string2 = "{1} {0} {2}".format("Geeks", "For", "Life")
+    print("\nPrint String in Positional order: ")
+    print(string2)
+    
+    # keyword formatting 
+    string3 = '{l} {f} {g}'.format(g="Geeks", f="For", l="life")
+    print("\nPrint String in order of Keywords: ")
+    print(string3)
     
 def main():
     gfg = 'geeksforgeeks'
@@ -25,3 +39,5 @@ if __name__ == '__main__':
     main()
     print(reversed_string('geeks'))
     reversed_sol2('hey')
+    print("String formatting: ")
+    string_formating()
