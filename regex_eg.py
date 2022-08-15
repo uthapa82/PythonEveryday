@@ -16,7 +16,8 @@ def extract_max(input):
     print(max(numbers))
 
 def main():
-    extract_max('100klh564abc365bg600')
+    user_input = input("Please enter any Alphanumeric value: ")
+    extract_max(user_input)
     
 if __name__ == "__main__":
     main()
