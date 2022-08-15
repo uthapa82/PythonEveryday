@@ -1,6 +1,23 @@
 # in python string are arrays of bytes representing Unicode characters 
 # python doesn't have character data types 
 
+def more_string_methods():
+    sample_str = "geeksforgeeks"
+    
+    str_1 = "gfo"
+    str_2 = "abc"
+    # using maketrans() to map elements to str2 with str1
+    # maketrans()- used to map the contents of string 1 with
+    # string 2 with respective indices to be translated later 
+    # using translate()
+    mapped = sample_str.maketrans(str_1, str_2)
+    
+    #using translate() to translate using the mapping
+    print("The string after translation using mapped element is: ")
+    
+    # tanslate() is used to swap the elements mapped 
+    print(sample_str.translate(mapped))
+    
 #reversing a string 
 def reversed_string(txt):
     result = ""
@@ -78,6 +95,8 @@ def main():
     string_formating()
     
     math_format()
+    
+    more_string_methods()
     
     
 if __name__ == '__main__':
