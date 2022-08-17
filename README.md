@@ -1,2 +1,5 @@
 # PythonEveryday
-learning or refreshing topics in python everyday challenge. 1 day 1 code 
+* Writing code every single day 
+* New topics, old topics refreshers 
+* Good python conventions 
+
