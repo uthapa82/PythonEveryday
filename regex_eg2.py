@@ -10,12 +10,18 @@ def number_matcher(str):
         print(-1, end="\n")
     print("\n")
     
-def password_validator():
-    pass
+def password_validator(str):
+    pat = ('[a-z]+[!@#$%]+[\d+]')
+    match = re.search(pat, str)
+    if(match):
+        print("True")
+    else:
+        print("False")
 
 def main():
     user_string = input("Enter random password: ")
     number_matcher(user_string)
+    password_validator(user_string)
     
 if __name__ == "__main__":
     main()
