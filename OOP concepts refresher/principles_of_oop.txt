@@ -1,0 +1,14 @@
+### Principles of OOP 
+1. Inheritance
+2. Polymorphism
+3. Encapsulation
+4. Abstraction 
+
+oop_1.py 
+1. Create  a class (blueprint)
+2. Create a instance (object)
+3. Class vs instance 
+4. instance attributes: defined in __init__(self) --> init function
+5. class attribute
+
+oop_2.py
