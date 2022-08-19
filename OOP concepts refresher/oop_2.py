@@ -1,6 +1,7 @@
 # position, name, age, level, salary 
 se_1 = ["Software Engineer", "Max", 20, "Junior", 5000]
 se_2 = ["Software Engineer", "Lisa", 25, "Senior", 7000]
+de_1 = ["Designer", "Adam", 25, "Senior", 7000]
 
 # PEP 8 by convention class name should be CapsWord 
 class SoftwareEngineer:
@@ -14,11 +15,39 @@ class SoftwareEngineer:
         self.age = age
         self.level = level
         self.salary = salary
+    
+    #instance method  
+    def code(self):
+        print(f"{self.name} is learning OOP")
+        
+    def code_in_language(self, language):
+        print(f"{self.name} is writing code in {language}...")
+        
+    def info(self):
+        info = f"name = {self.name}, age = {self.age}, level = {self.level}"
+        return info
+    
+    # dunder method
+    def __str__(self):
+        info = f"name = {self.name}, age = {self.age}, level = {self.level}"
+        return info
 
 # instance 
 se_1 = SoftwareEngineer("Max", 20, "Junior", 5000)
-print(se_1.name, se_1.age)
 
-print(SoftwareEngineer.alias)
 se_2 = SoftwareEngineer("Lisa", 25, "Senior", 7000)
-print(SoftwareEngineer.alias)
+
+se_1.code()
+se_2.code()
+
+se_1.code_in_language("GO")
+se_2.code_in_language("Python")
+
+print(se_1.info())
+print(se_2.info())
+
+# using __str__ instead of info() 
+print("\nPrinting information using only dunder method ")
+print(se_1)
+print(se_2)
+
