@@ -12,3 +12,7 @@ oop_1.py
 5. class attribute
 
 oop_2.py
+1. Instance method(sef)
+2. Our methods can take Arguments and can return values 
+3. Special "dunder" method(__str__ and __eq__)
+4. @static methods
