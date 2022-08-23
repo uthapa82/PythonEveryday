@@ -16,3 +16,9 @@ oop_2.py
 2. Our methods can take Arguments and can return values 
 3. Special "dunder" method(__str__ and __eq__)
 4. @static methods
+
+oop_3.py
+1. Inheritance: ChildClass(BaseClass)
+2. inherit, extend, override 
+3. super(): __init__()
+4. Polymorphism
