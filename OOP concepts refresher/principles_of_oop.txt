@@ -22,3 +22,11 @@ oop_3.py
 2. inherit, extend, override 
 3. super(): __init__()
 4. Polymorphism
+
+oop_4.py
+Note : 
+_x is called a "protected" attribute (one underscore)
+__x is called a "private" attribute (double underscore)
+
+Here we have used the word "private" for internal attributes with only
+one leading underscore as well 
