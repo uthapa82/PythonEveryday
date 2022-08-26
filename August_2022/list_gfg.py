@@ -45,6 +45,11 @@ def most_efficient_intersection(lst1, lst2):
     lst3 = [value for value in lst1 if value in temp]
     return lst3
 
+def lambda_exp(arr1, arr2):
+    # using lambda expression finding intersection
+    result = list(filter(lambda x: x in arr1, arr2))
+    print("Intersection : ", result)
+    
 def main():
     # general_list()
     lst_1 = [2, 4, 6, 8, 10]
@@ -61,6 +66,11 @@ def main():
     #Not maintaining repetition and order
     x=list(set(lst1))
     print("Not maintaining repetition "+str(x))
+    
+    print("\nIntersection using Lambda expression !!!")
+    arr_1 = [1, 3, 4, 5, 7]
+    arr_2 = [2, 3, 5, 6]
+    lambda_exp(arr_1, arr_2)
 
 
 if __name__ == "__main__":
