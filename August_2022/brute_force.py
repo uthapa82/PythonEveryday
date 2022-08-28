@@ -43,6 +43,19 @@ def duplicate_dict():
     result = print(new_list)
     return result 
 
+# using in, not in operators and count()
+def duplicate_item_2(lst_2):
+    x = []
+    y = []
+    for i in lst_2:
+        if i not in x:
+            x.append(i)
+    for i in x:
+        if lst_2.count(i) > 1:
+            y.append(i)
+    return print(y)
+    
+
 def main():
     list_1 = [10, 20, 30, 20, 30, 40, 50, -20, 60, -20]
     print("Brute Force Approach ")
@@ -52,6 +65,8 @@ def main():
     duplicate_item()
     print("\n Dictionary approach: ")
     duplicate_dict()
+    print("\n Using in, not in operators and count() : ")
+    duplicate_item_2(list_1)
     
 if __name__ == "__main__":
     main()
