@@ -21,12 +21,21 @@ def tuples_eg2():
     print("\nValues after unpacking: ")
     print(a)
     print(b)
+
+# concatenation of tuples 
+# always from end of the original tuple
+def tuples_eg3():
+    tuple_3 = (0, 1, 2, 3, 4)
+    tuple_4 = (5, 6, 7, 8, 9, "VA", "NJ")
     
+    new_tuple = tuple_3 + tuple_4
+    print("\n Tuple after concatenation is: ", new_tuple)
     
 def main():
     lst1 = [1, 2, 3, 4, 5, 6]
     tuples_eg1(lst1)
     tuples_eg2()
+    tuples_eg3()
 
 if __name__ == "__main__":
     main()
