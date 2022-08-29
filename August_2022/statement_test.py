@@ -36,6 +36,7 @@ def len_solution():
 
 # P4fizzbuzz for nultiple of 3 and 5 
 def fizz_buzz():
+    print("\n fizzbuzz program: ")
     result = []
     for num in range(1, 101):
         if num % 3 == 0 and num % 5 == 0:
@@ -50,8 +51,11 @@ def fizz_buzz():
     return result
 
 # P5. list of first letter of every word in string 
-def list_0f_str():
-    pass
+def list_of_str():
+    print("\n Program Number 5: ")
+    str_1 = 'Create a list of the first letters of every word in this string'
+    new_lst = [word[0] for word in str_1.split()]
+    print(new_lst)
 
 def main():
     word_with_s()
@@ -59,6 +63,7 @@ def main():
     len_of_str()
     len_solution()
     print(fizz_buzz())
+    list_of_str()
 
 if __name__ == "__main__":
     main()
