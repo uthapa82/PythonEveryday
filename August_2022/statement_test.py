@@ -17,7 +17,19 @@ def list_example():
 
 # P3.length of word even or odd 
 def len_of_str():
-    pass
+    len_string = "Print every word in the sentence that has an even number of letters"
+    new_lst = len_string.split()
+    for i in range(len(new_lst)):
+        if(len(new_lst[i])% 2 == 0):
+            print(new_lst[i] + " is even!")
+        
+# p3 soluton
+def len_solution():
+    len_string = "Print every word in the sentence that has an even number of letters"
+    print("\nGiven Solution: ")
+    for word in len_string.split():
+        if len(word) % 2 == 0:
+            print(word + " is even !")
 
 # P4fizzbuzz for nultiple of 3 and 5 
 def fizz_buzz():
@@ -30,6 +42,8 @@ def list_0f_str():
 def main():
     word_with_s()
     list_example()
+    len_of_str()
+    len_solution()
 
 if __name__ == "__main__":
     main()
