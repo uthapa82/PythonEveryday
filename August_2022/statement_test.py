@@ -1,5 +1,8 @@
 
 # P1.prints put words that start with 's'
+import numbers
+
+
 def word_with_s():
     string_1 = "Print only the words that start with s in this sentence"
     words = string_1.split()
@@ -33,7 +36,18 @@ def len_solution():
 
 # P4fizzbuzz for nultiple of 3 and 5 
 def fizz_buzz():
-    pass
+    result = []
+    for num in range(1, 101):
+        if num % 3 == 0 and num % 5 == 0:
+            result.append("FizzBuzz")
+        if num % 5 == 0:
+            result.append("Buzz")
+        elif num % 3 == 0:
+            result.append("Fizz")
+        else:
+            result.append(num)
+    
+    return result
 
 # P5. list of first letter of every word in string 
 def list_0f_str():
@@ -44,6 +58,7 @@ def main():
     list_example()
     len_of_str()
     len_solution()
+    print(fizz_buzz())
 
 if __name__ == "__main__":
     main()
