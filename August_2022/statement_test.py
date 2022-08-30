@@ -1,8 +1,5 @@
 
 # P1.prints put words that start with 's'
-import numbers
-
-
 def word_with_s():
     string_1 = "Print only the words that start with s in this sentence"
     words = string_1.split()
