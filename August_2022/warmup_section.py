@@ -39,6 +39,10 @@ def makes_twenty(n1, n2):
     
     else:
         return False
+    
+# pythonic way 
+def makes_twenty_py(n1, n2):
+    return (n1 + n2) == 20 or n1 == 20 or n2 == 20
         
 def main():
     print(lesser_of_two_evens(2, 4))
@@ -56,6 +60,10 @@ def main():
     # makes twenty problem
     print("\nMakes Twenty Problem: ")
     print(makes_twenty(10, 10))
+    
+     # makes twenty problem shorter version
+    print("\nMakes Twenty Problem shorter version: ")
+    print(makes_twenty_py(15, 5))
     
 
 if __name__ == "__main__":
