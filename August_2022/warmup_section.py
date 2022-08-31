@@ -21,13 +21,11 @@ def better_soluton(a, b):
     
 # animal cracker 
 def animal_crackers(text):
-    wordlist = text.split()
+    wordlist = text.lower().split()
     print(wordlist)
-    
-    first = wordlist[0]
-    second = wordlist[1]
-    
-    return first[0] == second[0]
+
+    return wordlist[0][0] == wordlist[1][0]
+
 def main():
     print(lesser_of_two_evens(2, 4))
     print(lesser_of_two_evens(2, 5))
