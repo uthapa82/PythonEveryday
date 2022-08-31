@@ -26,6 +26,20 @@ def animal_crackers(text):
 
     return wordlist[0][0] == wordlist[1][0]
 
+#makes twenty 
+def makes_twenty(n1, n2):
+    if n1 + n2 == 20:
+        return True
+    
+    elif n1 == 20:
+        return True
+    
+    elif n2 == 20:
+        return True
+    
+    else:
+        return False
+        
 def main():
     print(lesser_of_two_evens(2, 4))
     print(lesser_of_two_evens(2, 5))
@@ -38,6 +52,10 @@ def main():
     # Animal Cracker
     print("\nAnimal Cracker: ")
     print(animal_crackers('Levelheaded Llama'))
+    
+    # makes twenty problem
+    print("\nMakes Twenty Problem: ")
+    print(makes_twenty(10, 10))
     
 
 if __name__ == "__main__":
