@@ -34,6 +34,7 @@ def blackjack(a, b, c):
 # sections of numbers starting with a 6 and extending to the next 9 
 # summer_69([1, 3, 5]) ---> 9
 # summer_69([4, 5, 6, 7, 8, 9]) ----->9
+# summer_69([2, 1, 6, 9, 11]) -----> 14
 def summer_69(arr):
     total = 0
     add = True
@@ -62,6 +63,7 @@ def main():
     print("Summer of 69")
     print(summer_69([1, 3, 5]))
     print(summer_69([4, 5, 6, 7, 8, 9]))
+    print(summer_69([2, 1, 6, 9, 11]))
 
 if __name__ == "__main__":
     main()
