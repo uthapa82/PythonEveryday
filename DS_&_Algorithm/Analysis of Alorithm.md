@@ -61,3 +61,40 @@ def sum_sol_3(n):
     $g(n) = 100n + 3$
     * ignore lower order : n from f(n) and ignore constant 3 , 6, 2 and 100
     * The remaining is n^2 and n so n is faster, therefore g(n) is faster than f(n)
+
+**Best, Average and Worst Cases**
+
+```
+def get_sum_odd(l):
+    if len(l) % 2 == 0;
+        return 0
+    sum = 0
+    for x in l:
+        sum = sum + x 
+    return sum 
+
+```
+* we cannot make any general statement about the code above for order of growth because sometimes it is going to take the constant time ==> if the number of elements are even, if it have odd number elements then it's going to take linear time 
+
+* In the scenario above we divide algorithm into threee cases 
+    1. Best Case 
+        * Constant 
+    2. Average Case 
+        * Linear (*under assumption that even and odd cases are equally likely*)
+
+    3. Worst Case 
+        * Linear 
+
+**Assymptotic Notation**
+* Big O: Represents exact or upper bound 
+    * $ O(n), O(n^2) $
+
+* Theta : Represents exact bound
+    * for $ C1n + C2 $,  we have to write as $ \theta(n) $
+
+* Omega: Represents exact or lower bound 
+    * $ \omega(n), \omega(1), \omega(logn) $
+
+**Big O Notation (Upper Bound on Order of Growth)**
+* we say $f(n) = O(g(n)) $ iff there exist constants C and n~0~ such that $ f(n) \leq Cg(n) $ for all $ n \geq n_0 $
+
