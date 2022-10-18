@@ -90,11 +90,11 @@ def get_sum_odd(l):
     * $O(n), O(n^2)$
 
 * Theta : Represents exact bound
-    * for $C1n + C2 $,  we have to write as $ \theta(n)$
+    * for $C1n + C2 $,  we have to write as $\theta(n)$
 
 * Omega: Represents exact or lower bound 
     * $\omega(n), \omega(1), \omega(logn)$
 
 **Big O Notation (Upper Bound on Order of Growth)**
-* we say $f(n) = O(g(n)) $ iff there exist constants C and n~0~ such that $f(n) \leq Cg(n)$ for all $n \geq n_0$
+* we say $f(n) = O(g(n))$ iff there exist constants C and n~0~ such that $f(n) \leq Cg(n)$ for all $n \geq n_0$
 
