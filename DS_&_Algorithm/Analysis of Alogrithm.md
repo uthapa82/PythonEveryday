@@ -70,7 +70,7 @@ def sum_sol_3(n):
 
 <br>
 
-* ${n \over 4}, 2n+3, {n \over 100} + logn, n+1000, {n \over 10000}, logn+100 $   belongs to O(n)
+* ${n \over 4}, 2n+3, {n \over 100} + logn, n+1000, {n \over 10000}, logn+100$   belongs to O(n)
 
 <br>
 
