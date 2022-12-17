@@ -52,12 +52,26 @@ def sum_sol_3(n):
 1. Ignore lower order terms 
 2. Ignore leading constant 
 
-    * $ C < loglogn < logn < n^{1 \over 3} < n^{1 \over 2} < n <n^2 < n^3 < n^4 < 2^n < n^n$ 
+    * $ C < loglogn < logn < n^{1 \over 3} < n^{1 \over 2} < n <n^2 < n^3 < n^4 < 2^n < n^n $ 
 
     * constant is lowest growing thing then loglogn grows faster than constant ........
 
     * Example :
-    $f(n)= 2n^2 + n + 6 $
+    $f(n)= 2n^2 + n + 6$
     $g(n) = 100n + 3$
     * ignore lower order : n from f(n) and ignore constant 3 , 6, 2 and 100
     * The remaining is n^2 and n so n is faster, therefore g(n) is faster than f(n)
+
+**Big O Notation**
+* Upper Bound in Order of Growth 
+* we say $f(n) = O(g(n))$ iff there exists constant C and n0 such that $f(n) \leq Cg(n)$ for all $n \geq n0$
+* constant, lower order notation doesn't matter 
+* ignore lower order notation, ignore the constant 
+
+<br>
+
+* ${n \over 4}, 2n+3, {n \over 100} + logn, n+1000, {n \over 10000}, logn+100 $   belongs to O(n)
+
+<br>
+
+* ${n^2 \over 4}, 2n^2+3, {n^2 \over 100} + logn, n^2+1000, {n^2 \over 10000}$    belongs to O(n)
