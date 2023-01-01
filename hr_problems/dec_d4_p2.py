@@ -11,6 +11,11 @@ def main():
     
     print(days_in_calendar[day].upper())
 
-
+def alternate_sol():
+    m, d, y = map(int, input().split())
+    day = cal.weekday(y, m, d)
+    
+    print(cal.day_name[day].upper())
+    
 if __name__ == '__main__':
     main()
