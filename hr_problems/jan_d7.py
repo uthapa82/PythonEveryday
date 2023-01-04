@@ -14,6 +14,20 @@ def main():
     
     for element in sorted(final_set):
         print(element)
+
+def alternate_sol():
+    m = input()
+    set_m = set(map(int, input().split()))
     
+    n = input()
+    set_n = set(map(int, input().split()))
+    
+    res_1 = set_m.difference(set_n)
+    res_2 = set_n.difference(set_m)
+    
+    for element in sorted(res_2.union(res_1)):
+        print(element)
+        
 if __name__ == '__main__':
     main()
+    alternate_sol()
