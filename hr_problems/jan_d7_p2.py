@@ -10,6 +10,12 @@ def main():
     for item in result:
         print("".join(item))
         
-       
+def alternate_sol():
+    s, k = input().split()
+    for i in range(1, int(k)+1):
+        for j in combinations(sorted(s), i):
+            print(*j, sep='')  
+             
 if __name__ == '__main__':
-    main()
+    #main()
+    alternate_sol()
