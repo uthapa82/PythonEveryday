@@ -1,4 +1,4 @@
-
+from math_modules import trail_zero
 
 def sum_of_numbers(n):
     result = n * (n+1) / 2
@@ -38,6 +38,7 @@ def fact_number(value):
     return result
 
 # recursive method 
+# time complexity T(n) = T(n-1) + theta(1)
 def fact_number_rec(value):
     #base case 
     if value == 0:
@@ -46,18 +47,21 @@ def fact_number_rec(value):
     return value * fact_number_rec(value - 1)
 
 def main():
-    n = int(input("Enter n : "))
-    print("Sum of n natural numbers: ", sum_of_numbers(n))
+    # n = int(input("Enter n : "))
+    # print("Sum of n natural numbers: ", sum_of_numbers(n))
 
-    digit = int(input("\nEnter digit(s): "))
-    print("Total digits :", count_digits(digit))
+    # digit = int(input("\nEnter digit(s): "))
+    # print("Total digits :", count_digits(digit))
 
-    num = int(input("\nEnter num: "))
-    print("Palindrome: ", is_palindrome(num))
+    # num = int(input("\nEnter num: "))
+    # print("Palindrome: ", is_palindrome(num))
 
-    value = int(input("\nEnter value: "))
-    print(f"Factorial of {value} is:", fact_number(value))
-    print(f'Factorial of {value} using recursive method is:', fact_number_rec(value))
+    # value = int(input("\nEnter value: "))
+    # print(f"Factorial of {value} is:", fact_number(value))
+    # print(f'Factorial of {value} using recursive method is:', fact_number_rec(value))
+
+    trail_check_num = int(input("\nEnter to find zeros in a factorial (n!) : "))
+    print(trail_zero(trail_check_num))
 
     
 if __name__ == '__main__':
