@@ -1,4 +1,4 @@
-from math_modules import trail_zero
+from math_modules import *
 
 def sum_of_numbers(n):
     result = n * (n+1) / 2
@@ -60,9 +60,12 @@ def main():
     # print(f"Factorial of {value} is:", fact_number(value))
     # print(f'Factorial of {value} using recursive method is:', fact_number_rec(value))
 
-    trail_check_num = int(input("\nEnter to find zeros in a factorial (n!) : "))
-    print(trail_zero(trail_check_num))
-
+    # trail_check_num = int(input("\nEnter to find zeros in a factorial (n!) : "))
+    # print(trail_zero(trail_check_num))
+    A = int(input("Enter A value: "))
+    B = int(input("Enter B value: "))
+    print(gcd(A, B))
+    print(gcd_optimal(A, B))
     
 if __name__ == '__main__':
     main()

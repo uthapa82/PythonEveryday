@@ -23,3 +23,19 @@ def trail_zero(value):
         res = res + (value // i)
         i = i * 5
     return res 
+
+#GCD Euclidean Algorithm 
+#  time complexity O(min(a, b))
+def gcd(A, B):
+    while A != B:
+        if A > B:
+            A = A- B
+        else: 
+            B = B - A 
+    return A
+
+def gcd_optimal(A, B):
+    if B == 0:
+        return A
+    
+    return gcd(B, A % B)
