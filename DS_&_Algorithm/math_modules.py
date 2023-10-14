@@ -94,3 +94,13 @@ def is_prime_optimization(n):
         i += 6
     
     return True 
+
+# prime factorization 
+# naive solution 
+def prime_factor(n):
+    for i in range(2, n+1):
+        if is_prime_optimization(i):
+            x = i
+            while n % x == 0:
+                print(i)
+                x = x * i

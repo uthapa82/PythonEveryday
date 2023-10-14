@@ -62,10 +62,12 @@ def main():
 
     # trail_check_num = int(input("\nEnter to find zeros in a factorial (n!) : "))
     # print(trail_zero(trail_check_num))
-    A = int(input("Enter A value: "))
-    B = int(input("Enter B value: "))
-    print(gcd(A, B))
-    print(gcd_optimal(A, B))
+    # A = int(input("Enter A value: "))
+    # B = int(input("Enter B value: "))
+    # print(gcd(A, B))
+    # print(gcd_optimal(A, B))
+    p_factor = int(input("Enter n: "))
+    print(prime_factor(p_factor))
     
 if __name__ == '__main__':
     main()
