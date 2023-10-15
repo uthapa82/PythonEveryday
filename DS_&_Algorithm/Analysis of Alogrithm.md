@@ -75,3 +75,12 @@ def sum_sol_3(n):
 <br>
 
 * ${n^2 \over 4}, 2n^2+3, {n^2 \over 100} + logn, n^2+1000, {n^2 \over 10000}$    belongs to O(n)
+
+**Omega Notation- Lower Bound**
+*  $f(n) = \Omega(g(n))$ iff there exist positive constants c and $n_0$ such that $0 \leq cg(n) \leq f(n)$ for all $n \geq n_0$
+* if $f(n) = \Omega (g(n))$ then $g(n) = O(f(n))$
+* Omega notation is useful when we have lower bound on time complexity 
+
+**Theta Notation -Exact bound**
+* $f(n) = \theta (g(n))$ iff there exist constants $C_1, C_2$ (where $C_1 > 0$ and $C_2 >0$) and $n_0$ (where $n_0 \geq 0$) such that $C_1g(n) \leq f(n) \leq C_2g(n)$ for all $n \geq n_0$
+ 
