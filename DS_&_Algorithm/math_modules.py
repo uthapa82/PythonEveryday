@@ -104,3 +104,47 @@ def prime_factor(n):
             while n % x == 0:
                 print(i)
                 x = x * i
+
+#efficient solution, print all divisors but not in order 
+# time : theta(n^1/2), aux Space: O(1) 
+def print_divisor(n):
+    i = 1
+    while(i*i <= n):
+        if(n%i == 0):
+            print(i)
+            if (i != n/i):
+                print(n//i)
+        i += 1
+
+# sorted, theta(sqrt(n))
+def print_divisor_sort(n):
+    i = 1
+    while(i*i < n):
+        if(n%i == 0):
+            print(i)
+        i += 1
+    
+    while(i >= 1):
+        if(n%i == 0):
+            print(n//i)
+        i -= 1
+
+#Sieve of Eratosthenes 
+def sieve(n):
+    if n <= 1:
+        return
+    
+    prime_number = [True] * (n+1)
+
+    i = 2
+
+
+    while(i*i <= n):
+        if prime_number[i]:
+            for j in range(2 * i, n+1, i):
+                prime_number[j] = False
+        i += 1
+    
+    for i in range(2, n + 1):
+        if prime_number[i]:
+            print(i, end = " ")
