@@ -148,3 +148,19 @@ def sieve(n):
     for i in range(2, n + 1):
         if prime_number[i]:
             print(i, end = " ")
+
+#O(n loglog n) => we can say linear 
+def sieve_optimized(n):
+    if n <= 1:
+        return
+    prime_number = [True] * (n+1)
+
+    i = 2
+    while i <= n:
+        if prime_number[i]:
+            print(i, end = " ")
+
+            for j in range(i*i, n+1, i):
+                prime_number[j] = False
+        
+        i += 1
