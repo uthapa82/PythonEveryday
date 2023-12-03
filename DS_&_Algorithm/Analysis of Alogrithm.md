@@ -83,4 +83,13 @@ def sum_sol_3(n):
 
 **Theta Notation -Exact bound**
 * $f(n) = \theta (g(n))$ iff there exist constants $C_1, C_2$ (where $C_1 > 0$ and $C_2 >0$) and $n_0$ (where $n_0 \geq 0$) such that $C_1g(n) \leq f(n) \leq C_2g(n)$ for all $n \geq n_0$
- 
+
+**Analysis of Recursion**
+* Recursion Tree Method 
+    - we write non-recursive part as root of tree and recursive parts as children 
+    - we keep expanding children until we see a pattern 
+
+**Space Complexity**
+* Order of growth of memory(or RAM) usage in terms of input 
+* Auxiliary space : order of growth of extra space(space other than input/output)
+
