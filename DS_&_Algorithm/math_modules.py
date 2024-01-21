@@ -180,4 +180,15 @@ def digits_in_fact(n):
         digits += math.log10(i)
     
     return math.floor(digits) + 1
+
+# optimized version using Stirling's approximation formula 
+# time complexity is optimized to constant time from linear logarithmic (nlogn)
+def opt_digit_count_fact(n):
+    if n < 0:
+        return 0
+    if n <= 1:
+        return 1
     
+    result = (n * math.log10(n/math.e) + math.log10(2 * math.pi * n) / 2.0)
+    
+    return math.floor(result) + 1

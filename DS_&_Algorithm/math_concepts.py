@@ -68,6 +68,6 @@ def main():
     # print(gcd_optimal(A, B))
     p_factor = int(input("Enter n: "))
     #print(prime_factor(p_factor))
-    print(digits_in_fact(p_factor))
+    print(opt_digit_count_fact(p_factor))
 if __name__ == '__main__':
     main()
