@@ -67,7 +67,7 @@ def main():
     # print(gcd(A, B))
     # print(gcd_optimal(A, B))
     p_factor = int(input("Enter n: "))
-    print(prime_factor(p_factor))
-    
+    #print(prime_factor(p_factor))
+    print(digits_in_fact(p_factor))
 if __name__ == '__main__':
     main()

@@ -1,6 +1,6 @@
 #various mathematical functions 
 # trailing zeros in factorial 
-
+import math
 
 def trail_zero(value):
     #Naive problem 
@@ -161,3 +161,23 @@ def sieve_optimized(n):
                 prime_number[j] = False
         
         i += 1
+
+#finding the digits in a factorial of n
+# log(a*b) = log(a) + log(b)
+# log( n!) = log(1*2*3...*n) = log(1) + log(2) + ... + log(n)
+# Time complexity: O(N log N)
+def digits_in_fact(n):
+    #factorial exists only for n >= 0
+    if (n < 0):
+        return 0
+    
+    # base case 
+    if (n <= 1):
+        return 1
+    
+    digits = 0
+    for i in range(2, n + 1):
+        digits += math.log10(i)
+    
+    return math.floor(digits) + 1
+    
