@@ -192,3 +192,65 @@ def opt_digit_count_fact(n):
     result = (n * math.log10(n/math.e) + math.log10(2 * math.pi * n) / 2.0)
     
     return math.floor(result) + 1
+
+# time complexity = O(1)
+def absolute_value(n):
+    if n <= 0:
+        return n * -1
+    
+    return n
+
+# time complexity = O(N)
+def fact_number_rec(n):
+    if n == 0 or n == 1:
+        return 1
+    
+    return (n * fact_number_rec(n - 1))
+
+# finding perfect square 
+# time complexity = O(N ^1/2 * N^1/4)
+def exactly_divisors(n):
+    if n < 3:
+        return 0
+    
+    count = 0 
+    i = 2
+    while(i * i <= n):
+        if(is_prime_optimization(i)):
+            count += 1
+        i += 1
+    
+    return count 
+
+# quadratic equation
+# time complexity O(1) 
+def quadratic_roots(a, b, c):
+    determinant = (b ** 2) - (4 * a * c)
+    if determinant > 0:
+        root1 = math.floor((-b + math.sqrt(determinant))/(2 * a))
+        root2 = math.floor((-b - math.sqrt(determinant))/(2 * a))
+
+    elif determinant == 0:
+        root1 = math.floor(-b / (2 * a))
+        root2 = root1
+
+    else:
+        return [-1]
+    
+    if root1 > root2:
+        return [root1, root2]
+    else:
+        return [root2, root1]
+
+# time complexity O(logn)    
+def geometric_series(a, b, n):
+    if n == 1:
+        return a
+    elif n == 2:
+        return b 
+    else:
+        return (a * math.pow((b/a), (n - 1)))
+    
+
+
+
