@@ -24,6 +24,13 @@ def trail_zero(value):
         i = i * 5
     return res 
 
+    #alternate solution 
+    # O(log5n)
+    while (n / i >= 1):
+        res += int(n / i)
+        i *= 5
+    return int(res)
+
 #GCD Euclidean Algorithm 
 #  time complexity O(min(a, b))
 def gcd(A, B):
@@ -53,6 +60,7 @@ def lcm(a, b):
     
     return res
 
+# O(log(min(a,b)) as we are using euclidean algorithm for gcd 
 def optimal_lcm(a, b):
 
     return a * b // gcd_optimal(a, b)
@@ -74,7 +82,7 @@ def is_prime(n):
 
 # 3 x is_prime(n)
 def is_prime_optimization(n):
-    if n == 1:
+    if n <= 1:
         return False 
     
     if n == 2 or n == 3:
@@ -101,9 +109,23 @@ def prime_factor(n):
             while n % x == 0:
                 print(i)
                 x = x * i
+# efficient solution
+# time complexity O(sqrt(n)) 
+def prime_factor_efficient(n):
+    while n % 2 == 0:
+        print(2)
+        n /= 2
 
+    for i in range(3, int(math.sqrt(n))+1, 2):
+        while n % i == 0:
+            print(i)
+            n /= i
+    
+    if n > 2:
+        print(n)
+    
 #efficient solution, print all divisors but not in order 
-# time : theta(n^1/2), aux Space: O(1) 
+# time : O(sqrt(n)), aux Space: O(1) 
 def print_divisor(n):
     i = 1
     while(i*i <= n):
@@ -131,10 +153,10 @@ def sieve(n):
     if n <= 1:
         return
     
+    # [True for i in range(n+1)]
     prime_number = [True] * (n+1)
 
     i = 2
-
 
     while(i*i <= n):
         if prime_number[i]:
@@ -148,8 +170,6 @@ def sieve(n):
 
 #O(n loglog n) => we can say linear 
 def sieve_optimized(n):
-    if n <= 1:
-        return
     prime_number = [True] * (n+1)
 
     i = 2
