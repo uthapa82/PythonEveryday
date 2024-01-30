@@ -270,7 +270,68 @@ def geometric_series(a, b, n):
         return b 
     else:
         return (a * math.pow((b/a), (n - 1)))
+
+# computing power
+# Time complexity = O(n) 
+def power(x , n):
+    if (n == 0):
+        return 1
     
+    if (x == 0):
+        return 0
+    
+    return x * power(x, n - 1)
+'''
+list/dictionary/set/Generator comprehensions 
+output_list = [output_exp for var in input_list if (var satisfies this condition)]
+eg. [var for var in input_list if var % 2 == 0]
+
+output_dict = {key:value for (key,value) in iterable if (key, value satisfy this condition)}
+eg. {var:var **3 for var in input_list if var % 2 != 0}
+
+output_set = {var for var in input_list if var % 2 == 0}
+    - very similar to list only difference is set use curly brackets 
+
+generator_output = (var  for var in input_list if var % 2 == 0)
+for var in generator_output:
+    print(var, end = ' ')
+
+    - very similar to list comprehensions one difference is that generator use small brackets (wheras list - [])
+    - also generator don't allocate memory for the whole list, instead they generate each value one by one , more 
+    memory efficient 
+'''
+
+# array second largest element in a list 
+# time complexity : O(n)
+def max_second(arr, arr_size):
+    if arr_size < 2:
+        print("Invalid Input: ")
+        return
+    
+    first = second = -2147483648
+    for i in range(arr_size):
+        if (arr[i] > first):
+            second = first 
+            first = arr[i]
+
+        elif (arr[i] > second and arr[i] != first):
+            second = arr[i]
+        
+    if (second == -2147483648):
+        print("No second largest element")
+    else: 
+        print("Second largest element is ", second)
+
+# check if the list is sorted - O(n)
+def is_sorted(lst, arr_len):
+    if (arr_len == 0 or arr_len == 1):
+        return True
+    
+    for i in range(1, arr_len):
+        if (lst[i-1] > lst[i]):
+            return False
+    
+    return True
 
 
 
