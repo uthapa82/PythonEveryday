@@ -76,9 +76,15 @@ def rev_lst(lst):
         lst[start], lst[e] = lst[e], lst[start]
         start = start + 1
         e = e - 1
-        
+
+# time complexity O(n), auxiliary space: O(n)    
 def remove_duplicate(lst):
     n = len(lst)
+    # return if array is empty or 
+    # contains a single element 
+    if n == 0 or n == 1:
+        return n
+    
     temp_lst = list(range(n))
     j = 0
 
@@ -97,3 +103,44 @@ def remove_duplicate(lst):
     #     lst[k] = temp_lst[k]
 
     return temp_lst[:j]
+
+# duplicate without extra space
+# time complexity: O(n) auxiliary space: O(1)
+# just maintain a separate index for same array 
+def remove_duplicate_2(lst):
+    n = len(lst)
+
+    if n == 0 or n == 1:
+        return n
+    
+    j = 0
+
+    for i in range(0, n - 1):
+        if lst[i] != lst[i+1]:
+            lst[j] = lst[i]
+            j += 1
+    
+    lst[j] = lst[n-1]
+    j += 1
+
+    return lst[:j]
+
+# left rotate a list by one 
+def left_rotate(lst):
+    
+    # using slicing 
+    # return (lst[1:] + lst[0:1])
+
+    # using append/pop
+    # lst.append(lst.pop(0))
+    # return lst
+
+    # using iterative method 
+    n = len(lst)
+    x = lst[0]
+    
+    for i in range(1, n):
+        lst[i - 1] = lst[i]
+    
+    lst[n - 1] = x
+    
