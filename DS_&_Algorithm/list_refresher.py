@@ -143,4 +143,17 @@ def left_rotate(lst):
         lst[i - 1] = lst[i]
     
     lst[n - 1] = x
+
+    return lst 
+
+# one odd occuring 
+# eg. arr = [1,2,3,2,3,1,3] => 3 (as 3 occurs an odd number of times)
+# we can run two nested loops and compare but won't be efficient: O(n^2)
+# bitwise XOR of all the elements: O(n), auxiliary space O(1)
+def odd_occuring_number(lst):
+    result = 0
+    for element in lst:
+        result = result ^ element
     
+    return result
+
