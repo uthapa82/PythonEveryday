@@ -157,3 +157,36 @@ def odd_occuring_number(lst):
     
     return result
 
+# Comprehensions in python 
+def comprehension_example(lst):
+    list_comprehen = [x for x in lst if x % 2 == 0]
+
+    # set comrprehension 
+    s1 = {x for x in lst if x % 2 == 0}
+
+    # dictionary comprehension 
+    d1 = {x:x**2 for x in lst}
+
+    d2 = {x:f"ID{x}" for x in range(len(lst))}
+
+    lst2 = ['a', 'b', 'c']
+    d3 = {lst[i]:lst2[i] for i in range(len(lst2))}
+
+    # better option for d3 
+    d3_better = dict(zip(lst, lst2))
+
+    # inverting a dictionary (key becomes value and value becomes key)
+    d_inverted = {v:k for (k, v) in d3_better.items()}
+
+    print(d_inverted)
+
+# largest element in a list linear time 
+def largest_in_lst(lst):
+    if not lst:
+        return None 
+    else:
+        result = lst[0]
+        for i in range(1, len(lst)):
+            if lst[i] > result:
+                result = lst[i]
+        return result 
