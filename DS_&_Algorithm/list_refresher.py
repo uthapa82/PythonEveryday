@@ -228,3 +228,32 @@ def second_largest_optimal(lst):
                 slar = x
     return slar
 
+# check if a list is sorted 
+def check_sorted(lst):
+    if len(lst) <= 1:
+        return True
+    for i in range(len(lst)):
+        if lst[i] <= lst[i+1]:
+            return True
+        else:
+            return False
+
+# reverse a list 
+def reverse_list(lst):
+    s = 0
+    e = len(lst)
+    while s < e:
+        lst[s], lst[e] = lst[e], lst[s]
+        s = s + 1
+        e = e - 1
+
+# removes the element 
+def remove_duplicate(lst):
+    unique_lst = []
+    for item in lst:
+        if item not in unique_lst:
+            unique_lst.append(item)
+        
+    return unique_lst
+
+
