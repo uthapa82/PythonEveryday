@@ -241,7 +241,7 @@ def check_sorted(lst):
 # reverse a list 
 def reverse_list(lst):
     s = 0
-    e = len(lst)
+    e = len(lst) - 1
     while s < e:
         lst[s], lst[e] = lst[e], lst[s]
         s = s + 1
@@ -256,4 +256,16 @@ def remove_duplicate(lst):
         
     return unique_lst
 
+#left rotate a list 
+def left_rotate(lst):
+    #using direct method 
+    # lst.append(lst.pop(0))
+    # lst[1:] + lst[0]
+    n = len(lst)
+    x = lst[0]
+    for i in range(1, n):
+        lst[i - 1] = lst[i]
+   
+    lst[n-1] = x
+    return lst
 
