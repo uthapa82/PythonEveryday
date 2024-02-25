@@ -190,3 +190,41 @@ def largest_in_lst(lst):
             if lst[i] > result:
                 result = lst[i]
         return result 
+    
+# second largest element in a list 
+# naive solution - theta(n) two traversal of list 
+def getMax(lst):
+    result = lst[0]
+    for i in range(1, len(lst)):
+        result = max(result, lst[i])
+    return result
+
+def second_largest_in_lst(lst):
+    if len(lst) <= 1:
+        return None 
+    
+    lar = getMax(lst)
+    slar = None
+    for x in lst:
+        if x != lar:
+            if slar == None:
+                slar = x
+            else:
+                slar = max(slar, x)
+    return slar
+
+# time complexity theta(n) but only one traversal
+def second_largest_optimal(lst):
+    if len(lst) <= 1:
+        return None
+    lar = lst[0]
+    slar = None
+    for x in lst[1:]:
+        if x > lar:
+            slar = lar
+            lar = x
+        elif x != lar:
+            if slar == None or slar < x:
+                slar = x
+    return slar
+
