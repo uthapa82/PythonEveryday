@@ -269,3 +269,21 @@ def left_rotate(lst):
     lst[n-1] = x
     return lst
 
+def mean_median(arr, n):
+    
+    mean_arr = 0
+    for item in arr:
+        mean_arr += item
+    
+    print("Mean: ", mean_arr//n)
+
+    arr.sort()
+    #check if there are odd element 
+    if n % 2 != 0:
+        print("Median: ", arr[(n//2)])
+    
+    else: 
+        print("Median: ", (arr[n//2] + arr[(n//2) -1])//2)
+    
+if __name__ == '__main__':
+    mean_median([2,8,3,4], 4)
