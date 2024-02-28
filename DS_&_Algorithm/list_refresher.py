@@ -302,3 +302,27 @@ def min_max_arr(arr):
             min_result = i
     
     return max_result, min_result
+
+# check if a list is sorted or not 
+# can be sorted in ascending and descending order 
+def is_sorted(arr, n):
+    asc = True 
+    dsc = True 
+    
+    if n == 0 or n == 1:
+        return True
+
+    for i in range(n-1):
+        if arr[i] > arr[i+1]:
+            asc = False
+        
+        if arr[i] < arr[i+1]:
+            dsc = False 
+            
+        if not asc and not dsc:
+            return False
+    
+    return True
+
+if __name__ == "__main__":
+    print(is_sorted([1,2,3,4],4))
