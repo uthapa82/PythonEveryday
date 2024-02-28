@@ -285,5 +285,9 @@ def mean_median(arr, n):
     else: 
         print("Median: ", (arr[n//2] + arr[(n//2) -1])//2)
     
-if __name__ == '__main__':
-    mean_median([2,8,3,4], 4)
+def smaller_closet_element(arr, n, x):
+    lst = [i for i in arr if i<x]
+    if len(lst) == 0:
+        return -1
+    else:
+        return max(lst)
