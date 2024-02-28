@@ -291,3 +291,14 @@ def smaller_closet_element(arr, n, x):
         return -1
     else:
         return max(lst)
+
+def min_max_arr(arr):
+    max_result = arr[0]
+    min_result = arr[0]
+    for i in arr:
+        if i > max_result:
+            result = i
+        elif i < min_result:
+            min_result = i
+    
+    return max_result, min_result
