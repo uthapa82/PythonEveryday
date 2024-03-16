@@ -27,7 +27,7 @@ def floor_sqrt(x):
         if mid*mid < x:
             start = mid + 1
             ans = mid 
-            
+
         else:
             end = mid - 1
     return ans 
@@ -85,10 +85,44 @@ def count_occur(arr, n, x):
     else:
         return last_occurence(arr, n, x) - first + 1
 
-  
+
+# find the peak element in a list 
+def peak_element(arr, n):
+    start = 0
+    end = n - 1
+    while start <= end:
+        mid = start + ((end - start) // 2)
+        
+        #left neighbor greater
+        if mid > 0 and arr[mid] < arr[mid - 1]:
+            end = mid - 1 
+        
+        #right neighbor greater 
+        elif mid < n - 1 and arr[mid] < arr[mid + 1]:
+            start = mid + 1
+        
+        else:
+            return mid 
+
+def count_binary_1(arr,low,high):
+    
+    while low <= high :
+        mid = low + ((high - low)//2)
+
+        # check if the element at middle index is last 1
+        if mid == high  or arr[mid+1] == 0 and arr[mid] == 1:
+            return mid + 1
+        
+        # if element is not last 1, check right side 
+        if arr[mid] == 1:
+            return count_binary_1(arr, mid+1, high)
+        
+        return count_binary_1(arr, low, mid-1)
+    
+    return 0
+
 if __name__ == "__main__":
     # x = int(input("Enter an integer: "))
     # print("Square root or floor square root : ", floor_sqrt(x))
-    arr =[5, 10, 10, 10, 20, 20]
-    x = 11
-    print(count_occur(arr, len(arr),x)) 
+    arr = [1, 1, 1, 1, 1, 1, 0, 0, 0, 0]
+    print(count_binary_1(arr, 0, len(arr)-1)) 
