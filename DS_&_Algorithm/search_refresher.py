@@ -24,6 +24,55 @@ def floor_sqrt(x):
             end = mid - 1
     return ans 
 
+# First occurence Binary Search iterative method 
+def first_Occurence(arr, n, x):
+    low = 0
+    high = n - 1
+    while low <= high:
+        mid = low + (high - low)//2
+        if arr[mid] > x:
+            high = mid - 1
+        elif arr[mid] < x:
+            low = mid + 1
+        else:
+            if mid == 0 or arr[mid-1] != arr[mid]:
+                return mid 
+            else:
+                high = mid - 1
+    
+    return -1
+
+# index of last occurence 
+# naive solution O(n)
+def last_occurence_naive(arr, x):
+    for i in reversed(range(len(arr))):
+        if arr[i] == x:
+            return i
+    
+    return -1
+
+# efficient solution O(logn)
+def last_occurence(arr, n, x):
+    low  = 0
+    high = n - 1
+    while low <= high:
+        mid = (low + (high - low)//2)
+        if arr[mid] > x:
+            high = mid - 1
+        elif arr[mid] < x:
+            low = mid + 1
+        else:
+            if mid == len(arr) - 1 or arr[mid] != arr[mid+1]:
+                return mid 
+            else:
+                low = mid + 1
+    return -1
+        
+
+
 if __name__ == "__main__":
-    x = int(input("Enter an integer: "))
-    print("Square root or floor square root : ", floor_sqrt(x)) 
+    # x = int(input("Enter an integer: "))
+    # print("Square root or floor square root : ", floor_sqrt(x))
+    arr =[5, 10, 10, 10, 20, 20]
+    x = 10
+    print(last_occurence(arr, len(arr),x)) 
