@@ -3,6 +3,13 @@ Square root an integer using  Binary Search
 -Find largest integer i whose square is less than or equal to the given number 
 -The values i*i is monotonically increasing, so the problem can be solved using binary search 
 '''
+#time O(sqrt(n))
+def floor_sqrt_naive(x):
+    i = 1
+    while i*i <= x:
+        i += 1
+    return i - 1
+    
 def floor_sqrt(x):
     #base case 
     if x == 0 or x == 1:
@@ -20,6 +27,7 @@ def floor_sqrt(x):
         if mid*mid < x:
             start = mid + 1
             ans = mid 
+            
         else:
             end = mid - 1
     return ans 
@@ -67,12 +75,20 @@ def last_occurence(arr, n, x):
             else:
                 low = mid + 1
     return -1
-        
 
+# count occurence, efficient solution 
+# O(logn) + O(logn) ==> O(logn)
+def count_occur(arr, n, x):
+    first = first_Occurence(arr,n, x)
+    if first == -1:
+        return 0
+    else:
+        return last_occurence(arr, n, x) - first + 1
 
+  
 if __name__ == "__main__":
     # x = int(input("Enter an integer: "))
     # print("Square root or floor square root : ", floor_sqrt(x))
     arr =[5, 10, 10, 10, 20, 20]
-    x = 10
-    print(last_occurence(arr, len(arr),x)) 
+    x = 11
+    print(count_occur(arr, len(arr),x)) 
