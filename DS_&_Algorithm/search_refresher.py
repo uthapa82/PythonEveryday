@@ -121,6 +121,28 @@ def count_binary_1(arr,low,high):
     
     return 0
 
+# find the floor of largest element in list
+# Find element K such that it's less than or equal to x
+def floor_search(arr,low, high, x):
+
+    while low <= high:
+        if arr[high] <= x:
+            return high
+        mid = low + ((high - low)//2)
+        if arr[mid] == x:
+            return mid 
+        
+        # x lies between mid-1 and mid 
+        if mid > 0 and arr[mid-1] <=x and x < arr[mid]:
+            return mid-1
+        
+        # if x is smaller than mid 
+        if x < arr[mid]:
+            return floor_search(arr, low, mid-1, x)
+        
+        return floor_search(arr,mid+1, high,x)
+    return -1
+    
 if __name__ == "__main__":
     # x = int(input("Enter an integer: "))
     # print("Square root or floor square root : ", floor_sqrt(x))
