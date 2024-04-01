@@ -47,7 +47,7 @@ def bubble_sort_optimized(arr):
         if swapped == False:
             return
 
-# selection sort
+# selection sort, time complexity: O(n^2)
 def selection_sort(arr):
     n = len(arr)
 
@@ -56,13 +56,29 @@ def selection_sort(arr):
         for j in range(i+1, n):
             if arr[j] < arr[min_idx]:
                 min_idx = j
-                
+
         arr[min_idx], arr[i] = arr[i], arr[min_idx]
+
+# insertion sort 
+# two half sorted vs unsorted sub-array 
+# similar to playing cards 
+# best case :O(n), worst case: O(n^2)
+def insertion_sort(arr):
+    n = len(arr)
+    for i in range (1, n):
+        value = arr[i]
+        hole = i
+        while (hole > 0 and arr[hole - 1] > value):
+            arr[hole] = arr[hole - 1]
+            hole -= 1
+        
+        arr[hole] = value
 
 def main():
     test_arr = [10, 8, 20, 5]
     #bubble_sort_optimized(test_arr)
-    selection_sort(test_arr)
+    #selection_sort(test_arr)
+    insertion_sort(test_arr)
     print(*test_arr)
 
 if __name__ == "__main__":
