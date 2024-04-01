@@ -46,10 +46,23 @@ def bubble_sort_optimized(arr):
         
         if swapped == False:
             return
-        
+
+# selection sort
+def selection_sort(arr):
+    n = len(arr)
+
+    for i in range(n - 1):
+        min_idx = i
+        for j in range(i+1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+                
+        arr[min_idx], arr[i] = arr[i], arr[min_idx]
+
 def main():
     test_arr = [10, 8, 20, 5]
-    bubble_sort_optimized(test_arr)
+    #bubble_sort_optimized(test_arr)
+    selection_sort(test_arr)
     print(*test_arr)
 
 if __name__ == "__main__":
