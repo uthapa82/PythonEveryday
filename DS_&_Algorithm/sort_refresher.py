@@ -74,12 +74,49 @@ def insertion_sort(arr):
         
         arr[hole] = value
 
+'''
+Merge two sorted arrays 
+given two sorted arrays, need to meger these two arrays 
+naive approach  time complexity: O(nlogn(n))
+'''
+def merge_array(a, b):
+    res = a + b
+    res.sort()
+
+    return res 
+
+# optimize merge sort two arrays 
+def merge_array_optimized(a, b):
+    res = []
+    m = len(a)
+    n = len(b)
+    i = j = 0
+
+    while i < m and j < n:
+        if a[i] < b[j]:
+            res.append(a[i])
+            i += 1
+        else:
+            res.append(b[j])
+            j += 1
+    
+    while i < m:
+        res.append(a[i])
+        i += 1
+    
+    while j < n:
+        res.append(b[j])
+        j += 1
+
+    return res 
+
+
 def main():
     test_arr = [10, 8, 20, 5]
     #bubble_sort_optimized(test_arr)
     #selection_sort(test_arr)
-    insertion_sort(test_arr)
-    print(*test_arr)
+    #insertion_sort(test_arr)
+
 
 if __name__ == "__main__":
     main()
