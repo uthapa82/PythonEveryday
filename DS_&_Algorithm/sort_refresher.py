@@ -172,6 +172,45 @@ def union_list(a, b):
 
     return list(set(result))
 
+'''
+intersection of two lists 
+built in intersection: Sets is implemented efficiently using hash tables 
+allows for constant time average-case performance
+worst case could approach O(n) where n is the size of the larger set 
+overall time complexity of below function: O(min(len(a), len(b)))
+'''
+def intersection_list(a, b):
+    result = set(a).intersection(b)
+
+    return result 
+
+'''
+overall intersection_list and .._sol2 have same time complexity
+however if there are many common elements between the lsits
+sol2 implementation can be more efficient than the set intersection approach
+especially if the lists are already sorted 
+'''
+def intersection_list_sol2(a, b):
+    m = len(a)
+    n = len(b)
+    i = j = 0
+    result = []
+    while i < m and j < n:
+        if i > 0 and a[i - 1] == a[i]:
+            i += 1
+            continue 
+
+        if a[i] < b[j]:
+            i += 1
+        elif b[j] < a[i]:
+            j += 1
+        
+        else:
+            result.append(a[i])
+            i += 1
+            j += 1
+    
+    return result
 
 def main():
     test_arr = [10, 8, 20, 5]
@@ -181,7 +220,7 @@ def main():
     #merge_sort(test_arr)
     a = [2, 3, 3, 3]
     b = [3, 4, 4]
-    print(union_list(a,b))
+    print(intersection_list_sol2(a,b))
 
 
 if __name__ == "__main__":
