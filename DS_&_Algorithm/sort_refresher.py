@@ -76,7 +76,7 @@ def insertion_sort(arr):
 
 '''
 Merge two sorted arrays 
-given two sorted arrays, need to meger these two arrays 
+given two sorted arrays, need to mege these two arrays 
 naive approach  time complexity: O(nlogn(n))
 '''
 def merge_array(a, b):
@@ -109,6 +109,68 @@ def merge_array_optimized(a, b):
         j += 1
 
     return res 
+'''
+merge sort: very efficient sorting algorithm
+based on divide and conquer approach
+merge() takes O(n) time 
+merge_sort() takes O(log2n) so combined :-
+O(nlogn) is the best possible worst-case runtime 
+'''
+def merge(left, right):
+
+    if len(left) == 0:
+        return right
+    
+    if len(right) == 0:
+        return left
+    
+    result = [] 
+    left_indx = right_indx = 0
+
+    while len(result) < ( len(left) + len(right)):
+
+        if left[left_indx] <= right[right_indx]:
+            result.append(left[left_indx])
+            left_indx += 1
+        else:
+            result.append(right[right_indx])
+            right_indx += 1
+        
+        if len(left) == left_indx:
+            result += right[right_indx:]
+            break
+
+        if len(right) == right_indx:
+            result += left[left_indx:]
+            break
+
+    return result 
+
+def merge_sort(arr):
+    if len(arr) < 2:
+        return arr
+    
+    mid = len(arr)//2
+
+    return merge(left=merge_sort(arr[:mid]),
+                right=merge_sort(arr[mid:])) 
+
+
+'''
+Union of two sorted lists 
+eg: I/P a = [3, 5, 8] 
+b = [2, 8, 9]
+O/P: [2, 3, 5, 8, 9]
+naive solution
+Efficient solution using merge(left, right)
+print distinct element using list(set(merge()))
+'''
+def union_list(a, b):
+    result = a + b
+    result.sort()
+    
+
+    return list(set(result))
 
 
 def main():
@@ -116,6 +178,10 @@ def main():
     #bubble_sort_optimized(test_arr)
     #selection_sort(test_arr)
     #insertion_sort(test_arr)
+    #merge_sort(test_arr)
+    a = [2, 3, 3, 3]
+    b = [3, 4, 4]
+    print(union_list(a,b))
 
 
 if __name__ == "__main__":
