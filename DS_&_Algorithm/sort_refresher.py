@@ -296,7 +296,7 @@ def list_partition(arr, pivot):
     return arr
 
 '''
-Lomuto partition 
+Lomuto partition :linear time
 takes only one traversal theta(1) auxiliary space 
 '''
 def lomuto_partition(arr):
@@ -314,6 +314,31 @@ def lomuto_partition(arr):
     #returns the index of pivot in corret position
     return i+1
 
+'''
+Hoare's partition: linear time theta(1) space 
+faster than lomuto partition 
+constants are smaller than lomuto 
+first element as pivot 
+there's no guarantee that pivot goes to correct positon
+'''
+def hoare_partition(arr):
+    start = 0
+    high = len(arr) - 1
+    pivot = arr[start]
+    i = start - 1
+    j = high + 1
+    while True:
+        i += 1
+        while arr[i] < pivot:
+            i += 1
+        j -= 1
+        while arr[j] > pivot:
+            j -= 1
+        if i >= j:
+            return j
+        arr[i], arr[j] = arr[j], arr[i]
+
+
 def main():
     test_arr = [10, 8, 20, 5]
     #bubble_sort_optimized(test_arr)
@@ -324,7 +349,8 @@ def main():
     # b = [3, 4, 4]
     # print(intersection_list_sol2(a,b))
     test_arr1 = [10, 80, 30, 90, 50, 70]
-    print(lomuto_partition(test_arr1))
+    print(hoare_partition(test_arr1))
+    
 
 
 if __name__ == "__main__":
