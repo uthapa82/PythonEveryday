@@ -212,15 +212,119 @@ def intersection_list_sol2(a, b):
     
     return result
 
+'''
+Inversion: A pair (arr[i], arr[j]) forms an inversion when 
+i < j and arr[i] > arr[j]
+naive approcah: O(n^2)
+efficient solution using merge sort: nlogn time complexity 
+'''
+def count_inversion(arr):
+    count = 0
+    n = len(arr)
+
+    for i in range(n - 1):
+        for j in range(i + 1, n):
+            if i < j and arr[i] > arr[j]:
+                count +=1
+    
+    return count 
+
+#modified merge sort to count inversion 
+# O(nlogn)
+def merge_to_count(left, right):
+    inversions = 0  # Counter for inversions
+    if len(left) == 0:
+        return right, inversions
+    
+    if len(right) == 0:
+        return left, inversions
+    
+    result = [] 
+    left_indx = right_indx = 0
+
+    while len(result) < (len(left) + len(right)):
+
+        if left[left_indx] <= right[right_indx]:
+            result.append(left[left_indx])
+            left_indx += 1
+        else:
+            result.append(right[right_indx])
+            right_indx += 1
+            inversions += len(left) - left_indx  # Increment inversions count
+
+        if len(left) == left_indx:
+            result += right[right_indx:]
+            break
+
+        if len(right) == right_indx:
+            result += left[left_indx:]
+            break
+
+    return result, inversions
+
+def merge_sort_to_count(arr):
+    if len(arr) < 2:
+        return arr, 0
+    
+    mid = len(arr) // 2
+
+    left, left_inversions = merge_sort_to_count(arr[:mid])
+    right, right_inversions = merge_sort_to_count(arr[mid:])
+    
+    merged_arr, merge_inversions = merge_to_count(left, right)
+    
+    total_inversions = left_inversions + right_inversions + merge_inversions
+
+    return merged_arr, total_inversions
+
+# partition list, naive solution: theta(n)
+def list_partition(arr, pivot):
+    n = len(arr)
+    arr[pivot], arr[n-1] = arr[n-1], arr[pivot]
+    temp = []
+    for x in arr:
+        if x <= arr[n-1]:
+            temp.append(x)
+    
+    for x in arr:
+        if x > arr[n-1]:
+            temp.append(x)
+    
+    for i in range(n):
+        arr[i] = temp[i]
+    
+    return arr
+
+'''
+Lomuto partition 
+takes only one traversal theta(1) auxiliary space 
+'''
+def lomuto_partition(arr):
+    start = 0 
+    high = len(arr) - 1
+    pivot = arr[high]
+    i = start - 1
+    for j in range(start, high):
+        if arr[j] < pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+    
+    arr[i + 1], arr[high] = arr[high], arr[i + 1]
+
+    #returns the index of pivot in corret position
+    return i+1
+
 def main():
     test_arr = [10, 8, 20, 5]
     #bubble_sort_optimized(test_arr)
     #selection_sort(test_arr)
     #insertion_sort(test_arr)
     #merge_sort(test_arr)
-    a = [2, 3, 3, 3]
-    b = [3, 4, 4]
-    print(intersection_list_sol2(a,b))
+    # a = [2, 3, 3, 3]
+    # b = [3, 4, 4]
+    # print(intersection_list_sol2(a,b))
+    test_arr1 = [10, 80, 30, 90, 50, 70]
+    print(lomuto_partition(test_arr1))
 
 
 if __name__ == "__main__":
