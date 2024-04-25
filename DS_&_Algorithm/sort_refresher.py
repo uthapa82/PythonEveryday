@@ -299,13 +299,12 @@ def list_partition(arr, pivot):
 Lomuto partition :linear time
 takes only one traversal theta(1) auxiliary space 
 '''
-def lomuto_partition(arr):
-    start = 0 
-    high = len(arr) - 1
+def lomuto_partition(arr, start, high):
+
     pivot = arr[high]
     i = start - 1
     for j in range(start, high):
-        if arr[j] < pivot:
+        if arr[j] <= pivot:
             i += 1
             arr[i], arr[j] = arr[j], arr[i]
     
@@ -321,9 +320,8 @@ constants are smaller than lomuto
 first element as pivot 
 there's no guarantee that pivot goes to correct positon
 '''
-def hoare_partition(arr):
-    start = 0
-    high = len(arr) - 1
+def hoare_partition(arr, start, high):
+
     pivot = arr[start]
     i = start - 1
     j = high + 1
@@ -338,6 +336,23 @@ def hoare_partition(arr):
             return j
         arr[i], arr[j] = arr[j], arr[i]
 
+''''
+Quick Sort : Divide and conquer algorithm
+worst case time :O(n^2) despite this it is considered faster because:
+In-placa, cache friendly, average case in O(nlogn), tail recursivve 
+'''
+def quicksort_hoarse(arr, l, h):
+    if l < h:
+        p = hoare_partition(arr, l, h)
+        quicksort_hoarse(arr, l ,p)
+        quicksort_hoarse(arr, p + 1, h)
+
+def quicksort_lomuto(arr, l, h):
+    if l < h:
+        p = lomuto_partition(arr, l, h)
+        quicksort_lomuto(arr, l ,p - 1)
+        quicksort_lomuto(arr, p + 1, h)
+
 
 def main():
     test_arr = [10, 8, 20, 5]
@@ -348,8 +363,9 @@ def main():
     # a = [2, 3, 3, 3]
     # b = [3, 4, 4]
     # print(intersection_list_sol2(a,b))
-    test_arr1 = [10, 80, 30, 90, 50, 70]
-    print(hoare_partition(test_arr1))
+    test_arr1 = [8, 4, 7, 9, 3, 10, 5]
+    quicksort_lomuto(test_arr1, 0, 6)
+    print(*test_arr1)
     
 
 
