@@ -310,7 +310,7 @@ def lomuto_partition(arr, start, high):
     
     arr[i + 1], arr[high] = arr[high], arr[i + 1]
 
-    #returns the index of pivot in corret position
+    #returns the index of pivot in correct position
     return i+1
 
 '''
@@ -340,6 +340,8 @@ def hoare_partition(arr, start, high):
 Quick Sort : Divide and conquer algorithm
 worst case time :O(n^2) despite this it is considered faster because:
 In-placa, cache friendly, average case in O(nlogn), tail recursivve 
+Theta(n) auxiliary space in the worst case and theta(logn) in best case 
+or average case
 '''
 def quicksort_hoarse(arr, l, h):
     if l < h:
@@ -353,7 +355,43 @@ def quicksort_lomuto(arr, l, h):
         quicksort_lomuto(arr, l ,p - 1)
         quicksort_lomuto(arr, p + 1, h)
 
+'''
+Heap Sort: Can be seen as an optimization over selection sort 
+Two steps: 
+(1) Build a max Heap 
+(2) Repeatedly swap root with the last node, reduce 
+heap size by 1 and heapify 
 
+Time: O(nlogn), Aux space: O(1)
+Not stable 
+Used in hybrid sorting algorithms like Introsort 
+'''
+def max_heapify(arr, n, i):
+    largest = i
+    left = 2 * i + 1
+    right = 2 * i + 2
+    if left < n and arr[left] > arr[largest]:
+        largest = left 
+
+    if right < n and arr[right] > arr[largest]:
+        largest = right 
+
+    if largest != i:
+        arr[i], arr[largest] = arr[largest], arr[i]
+        max_heapify(arr, n, largest)
+
+def build_heap(arr):
+    n = len(arr)
+    for i in range((n - 2)//2, -1, -1):
+        max_heapify(arr, n, i)
+
+def heap_sort(arr):
+    n = len(arr)
+    build_heap(arr)
+
+    for i in range(n - 1, 0 -1):
+        arr[i], arr[0] = arr[0], arr[i]
+        max_heapify(arr, i, 0)
 def main():
     test_arr = [10, 8, 20, 5]
     #bubble_sort_optimized(test_arr)
@@ -367,7 +405,6 @@ def main():
     quicksort_lomuto(test_arr1, 0, 6)
     print(*test_arr1)
     
-
-
+    
 if __name__ == "__main__":
     main()
