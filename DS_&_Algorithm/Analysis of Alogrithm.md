@@ -110,3 +110,35 @@ def sum_sol_3(n):
 * **Auxiliary Space** : The extra space or temporary space used by an algorithm 
 
 * **Space Complexity**: The total space taken by the algorithm with respect to the input size.
+
+### Sorting 
+* The worst case of QuickSort occurs when the picked pivot is always one of the corner elements in sorted array, in worst case, quicksort recursively calls one subproblem with size 0 and other subproblem with size (n-1). So recurrence is 
+
+    $T(n) + T(n-1) + O(n)$ 
+
+    which can be rewritten as 
+
+    $T(n) = T(n-1) + O(n)$
+
+* If we use the median as a pivot element, then the recurrence for all cases becomes 
+
+    $T(n) = 2T(n/2) + O(n) $
+
+    The above recurrence can be solved using master method. It falls in case 2 of the master method.
+
+    So, the worst-case the worst case time complexity of this modified Quick Sort is O(nLogn)
+
+* QuickSort is not a stable sorting algorithm in its typical implementation 
+
+* Insertion sort takes linear time when input array is sorted or almost sorted (maximum 1 or 2 elements are misplaced). All other sorting algorithms mentioned above will take more than linear time in their typical implementation 
+
+* Given an unsorted array , that every element in the array is at most k distance from its position in a sorted array where k is a positive integer smaller than the size of an array, which sorting algorithm can be easily modified for sorting this array and what is obtainable time complexity ? 
+
+    * We can perform in O(nlogK) time using heaps 
+    * first create a min-heap with first k+1 elements. Now we are sure that the smallest element will be in this K + 1 element. Now, remove the smallest element from the min-heap(which is the root) and put it in the result array. Next, insert another element from the unsorted array into the mean-hip, now the second smallest element will be in this.Extract it from the mean-heap and continue this until no more elements are in the unsorted array. Next, use a simple heap sort for the remaining elements 
+
+    **Time Complexity**
+    O(K) to build the initial min-heap 
+    O((n-k)logk) for remaining elements 
+
+    Thus we get O(nlogk)
