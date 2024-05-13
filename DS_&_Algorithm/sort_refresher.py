@@ -33,7 +33,7 @@ def bubble_sort(arr):
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
 
 # slightly optimized bubble sort 
-# stops when the list become sorted
+# stops when the list become sorted: O(N)
 def bubble_sort_optimized(arr):
     n = len(arr) - 1
 

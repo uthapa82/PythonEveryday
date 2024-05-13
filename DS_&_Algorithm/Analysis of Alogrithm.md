@@ -142,3 +142,16 @@ def sum_sol_3(n):
     O((n-k)logk) for remaining elements 
 
     Thus we get O(nlogk)
+
+* In a situation where swap operation is very costly, selection sort should be pregerred as it makes 
+O(n) swaps which is the minimum among all sorting algorithms like insertion, merge, heap sort 
+
+* Suppose we are sorting an array of eight integers using quicksort, and we have just finished the first partitioning with the array looks like :
+    `2 5 1 7 9 12 11 10`
+
+    in this case the povot could be either 7 or 9 as all the elements on the left of 7 and 9 are smaller than 7 and 9 respectively and on right are greater than 7 and 0 respectively 
+
+* Suppose we are sorting an array of eight integers using heapsort, and we have just finished some heapify (either maxheapify or minheapify) operations. The array now looks like this: 16 14 15 10 12 27 28 How many heapify operations have been performed on root of heap? => 2 ,In Heapsort, we first build a heap, then we do following operations till the heap size becomes 1 
+    * Swap the root with last element 
+    * Call heapify for root 
+    * reduce the heap size by 1 
