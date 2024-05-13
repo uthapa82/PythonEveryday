@@ -277,6 +277,12 @@ def merge_sort_to_count(arr):
 
     return merged_arr, total_inversions
 
+#inversion count gfg solution 
+def inversion_count(arr, n):
+    sorted_arr, inv_count = merge_sort_to_count(arr)
+    return inv_count 
+
+  
 # partition list, naive solution: theta(n)
 def list_partition(arr, pivot):
     n = len(arr)
@@ -392,6 +398,7 @@ def heap_sort(arr):
     for i in range(n - 1, 0 -1):
         arr[i], arr[0] = arr[0], arr[i]
         max_heapify(arr, i, 0)
+        
 def main():
     test_arr = [10, 8, 20, 5]
     #bubble_sort_optimized(test_arr)
@@ -405,6 +412,6 @@ def main():
     quicksort_lomuto(test_arr1, 0, 6)
     print(*test_arr1)
     
-    
+
 if __name__ == "__main__":
     main()
