@@ -41,6 +41,8 @@ def gcd(A, B):
             B = B - A 
     return A
 
+# gcd(A, B) = gcd(B, A % B)
+# time complexity O(log(min(A, B)))
 def gcd_optimal(A, B):
     if B == 0:
         return A
@@ -48,6 +50,7 @@ def gcd_optimal(A, B):
     return gcd(B, A % B)
 
 # time complexity theta(axb - max(a, b))
+# using Brute Force Approach O(max(a, b))
 def lcm(a, b):
     res = max(a, b)
 
@@ -61,11 +64,13 @@ def lcm(a, b):
     return res
 
 # O(log(min(a,b)) as we are using euclidean algorithm for gcd 
+# LCM(a, b) = |a.b|/GCD(a, b)
 def optimal_lcm(a, b):
 
     return a * b // gcd_optimal(a, b)
 
 # Time --> O(sqrt(n))
+# Basic Prime Check (Trial Division)
 def is_prime(n):
     if n == 1:
         return False 
