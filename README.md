@@ -1,5 +1,5 @@
 # PythonEveryday
-* Writing code every single day 
-* New topics, old topics refreshers 
-* Good python conventions 
-
+A Python coding repository.
+* Committing to writing Python code every day
+* Exploring new topics and revisiting core concepts
+* Focusing on clean, Pythonic code and best practices
