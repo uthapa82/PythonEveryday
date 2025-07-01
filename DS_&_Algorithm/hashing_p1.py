@@ -20,52 +20,60 @@ class NormalHash:
 
 # open addressing hash class
 class OpenAddressingHash:
-    def __init__(self, c):
-        self.capacity = c
-        self.table = [-1] * c
+    EMPTY = -1
+    DELETED = -2
+    def __init__(self, capacity):
+        self.capacity = capacity
+        self.table = [self.EMPTY] * capacity
         self.size = 0
-
-    def hash(self, x):
-        return x % self.capacity
     
-    def search(self, x):
-        h = self.hash(x)
+    '''
+    support for non-integer keys 
+    def hash(self, key):
+        return hash(key) % self.capacity
+        
+    '''
+    def hash(self, key):
+        return key % self.capacity
+    
+    def search(self, key):
+        h = self.hash(key)
         t = self.table
         i = h
         # -1 => empty slot -2=> deleted 
-        while t[i] != -1:
-            if t[i] == x:
+        while t[i] != self.EMPTY:
+            if t[i] == key:
                 return True
             i = (i + 1) % self.capacity
             # when whole the hash table is full --> check in linear probing 
             if i == h:
-                return False
+                return False # can use break
         
         return False
 
-    def insert(self, x):
+    def insert(self, key):
         
-        if self.size == self.cap:
-            return False 
+        if self.size == self.capacity:
+            return False # Table Full
         
-        if self.search(x) == True:
-            return False
+        if self.search(key) == True:
+            return False # Duplicate
         
-        i = self.hash(x)
+        i = self.hash(key)
         t = self.table 
-        while t[i] not in (-1, -2):
+        while t[i] not in (self.EMPTY, self.DELETED):
             i = (i + 1) % self.capacity
-        t[i] = x
-        self.size = self.size + 1
+        t[i] = key
+        self.size += 1
         return True
         
-    def remove(self, x):
-        h = self.hash(x)
+    def remove(self, key):
+        h = self.hash(key)
         t = self.table
         i = h
-        while t[i] != -1:
-            if t[i] == x:
-                t[i] = -2
+        while t[i] != self.EMPTY:
+            if t[i] == key:
+                t[i] = self.DELETED
                 return True
             i = (i + 1) % self.capacity
             if i == h:

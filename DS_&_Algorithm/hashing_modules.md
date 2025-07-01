@@ -239,4 +239,42 @@ Another method of handling collision
 
 - Input: arr[] = [10, 10, 10, 10]
   Output: 10    4
-  
+
+
+
+|Chaining|Open Addressing|
+|--|--|
+|1. Hash Table never fills | Table may become full and resizing becomes mandatory|
+|2. Less sensitive to hash function | Extra care required for clustering|
+|3. Poor Cache Performance | Cache Friendly |
+|4. Extra space for links | Extra space might be needed to achieve same performance as chanining , need to know count of key|
+| 1 + aplha = 1.9 | 1/(1 - alpha) = 1/(1-0.9)=10
+
+**Sets**
+- Distinct elements 
+- Unordered 
+- No indexing 
+- Union, Intersection, set Difference etc are fast 
+- Uses hashing Internally
+
+- Discard doesn't raises error when element is not found in the set, but remove will raises error if the element is not found in the set 
+
+- "in" operator in sets are faster than list as sets uses the hashing internally 
+- s1 = {2,4,6,8} & s2 = {4,8}
+- isdisjoint =  boolean=>true if no common elements 
+- s1 <= s2 => is subset, s1.issubset(s2) =>  s1 is not subset of s2 as s1 has more element than s2
+- s1 < s2 => proper subset => eg {2, 4} {2,4} = False can't be same elements/size
+- s1 >= s2 => s1.issuperset(s2) => All elements of s2 are present in s1 
+- s1 > s2 => proper superset => s1 has extra elements including s2
+
+**Dictionary**
+- collection of key value pairs 
+- unordered 
+- all keys must be distinct 
+- values may be repeated 
+- uses hashing internally 
+- d = {110:'xyz', 101:'abs', 105:'bcd'}
+- d.get(125, "NA")
+- d.pop -> deletes the value associated with key
+- del d[106] -> removes everything key values 
+- d.popitem(1) -> prints and removes last inserted key/value pairs
