@@ -173,5 +173,70 @@ Another method of handling collision
         - might have it doesn't find empty slot even though there are some as we are probing quadraticly 
         - load factor $ \alpha \le 0.5 $ 
         - hash function is a prime number 
+
     2. Double hashing 
-        hash(key, i) = $ (h, (key) + i * h2(key)) \%  m $ 
+        hash(key, i) = $ (h1, (key) + i * h2(key)) \%  m $ 
+
+        - We use two hash function 
+        - If h2(key) is relatively prime to m, then it always find a free slot if there is one 
+
+        - Distributes keys more uniformly than linear probing and quadratic hashing 
+        - No clustering 
+        Example: 
+            m = 7
+            h1(key) = (key % 7 )
+            h2(key) 6 - (key % 6) ==> when collision occurs 
+            63 % 7 = 0 so collision move to h2
+            h2(key) = 6 - (63 % 6)
+                    = 6 - 2
+                    = 3
+            49, 63, 56, 52, 54, 48
+            |||
+            |--|--|
+            |0|49|
+            |1|50|
+            |2|51|
+            |3|63|
+            |4|56|
+            |5|53|
+            |6|19|
+        
+        - why h2(key) and m should be relatively prime ?
+        => assuming h2(key) = 6
+            (1 x 6 ) % 7 = 6
+            (2 x 6 ) % 7 = 5
+            (3 x 6 ) % 7 = 4
+            (4 x 6 ) % 7 = 3
+            (5 x 6 ) % 7 = 2
+            (6 x 6 ) % 7 = 1
+            
+        ```bash
+            void doubleHashingInsert(key)
+            {
+                if (table if full)---> return error
+
+                probe = h1(key), offset = h2(key) # incase of linear probing offset value is 1
+                while (table[probe] is occupied)
+                    probe = (probe + offset) % m
+                table[probe] = key
+            }
+        ```
+        - Performance Analysis of search
+            $ \alpha = n (number of keys) /m (hash table size) (should be \leq 1) $ 
+
+            Assumption : Every probe sequence looks at a random location 
+            
+            $ (1 - \alpha) $ Fraction of the Table is empty 
+
+            Expected No. of probes required = $ 1 / (1 - \alpha) $
+
+**Frequencies of Array Elements**
+- Input : arr[]  = [10, 12, 10, 15, 10, 20, 12, 12 ]
+  Output: 10    3
+          12    3
+          15    1
+          20    1
+
+- Input: arr[] = [10, 10, 10, 10]
+  Output: 10    4
+  
